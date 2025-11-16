@@ -1,0 +1,22 @@
+{
+  "name": "grip-vue-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@owebeeone/grip-core": "file:../grip-core",
+    "@owebeeone/grip-vue": "file:../grip-vue",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.0.0",
+    "vue-tsc": "^2.1.6"
+  }
+}
