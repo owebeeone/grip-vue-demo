@@ -9,13 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@owebeeone/grip-core": "file:../grip-core",
-    "@owebeeone/grip-vue": "file:../grip-vue",
+    "@owebeeone/grip-core": "^0.2.0",
+    "@owebeeone/grip-vue": "^0.2.0",
     "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^5.1.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
     "typescript": "~5.8.3",
+    "util": "^0.12.5",
     "vite": "^6.0.0",
     "vue-tsc": "^2.1.6"
   }

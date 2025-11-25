@@ -26,15 +26,15 @@
           </div>
           <div class="calc-grid">
             <button v-for="n in [7,8,9]" :key="'d'+n" @click="() => digit(n)">{{ n }}</button>
-            <button @click="div">/</button>
+            <button @click="calcDivPressed?.()">/</button>
             <button v-for="n in [4,5,6]" :key="'d'+n" @click="() => digit(n)">{{ n }}</button>
-            <button @click="mul">*</button>
+            <button @click="calcMulPressed?.()">*</button>
             <button v-for="n in [1,2,3]" :key="'d'+n" @click="() => digit(n)">{{ n }}</button>
-            <button @click="sub">-</button>
+            <button @click="calcSubPressed?.()">-</button>
             <button @click="() => digit(0)">0</button>
-            <button @click="clearCalc">C</button>
-            <button @click="equals">=</button>
-            <button @click="add">+</button>
+            <button @click="calcClearPressed?.()">C</button>
+            <button @click="calcEqualsPressed?.()">=</button>
+            <button @click="calcAddPressed?.()">+</button>
           </div>
         </div>
 
@@ -101,12 +101,6 @@ function decCount() {
 function digit(n: number) {
   calcDigitPressed.value?.(n)
 }
-function add() { calcAddPressed.value?.() }
-function sub() { calcSubPressed.value?.() }
-function mul() { calcMulPressed.value?.() }
-function div() { calcDivPressed.value?.() }
-function equals() { calcEqualsPressed.value?.() }
-function clearCalc() { calcClearPressed.value?.() }
 </script>
 
 <style scoped>
