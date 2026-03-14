@@ -14,7 +14,7 @@ import { useGripRuntime, useGrip, useTap } from '@owebeeone/grip-vue'
 import { WEATHER_LOCATION, WEATHER_TEMP_C } from './grips.weather'
 
 const { context: parentCtx } = useGripRuntime()
-const headerCtx = parentCtx.getGripConsumerContext().createChild()
+const headerCtx = parentCtx.getGripConsumerContext().createChild('header-weather')
 
 useTap(
   () => createAtomValueTap(WEATHER_LOCATION, { initial: 'Sydney' }) as unknown as Tap,

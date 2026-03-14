@@ -43,7 +43,9 @@ const props = defineProps<{
 }>()
 
 const { context: parentCtx } = useGripRuntime()
-const ctx = parentCtx.getGripConsumerContext().createChild() as GripContextLike
+const ctx = parentCtx
+  .getGripConsumerContext()
+  .createChild(`weather-column-${props.title.toLowerCase().replace(/\s+/g, '-')}`) as GripContextLike
 
 const locationBindings = computed(() => [
   { grip: WEATHER_LOCATION, value: props.initialLocation, handleGrip: WEATHER_LOCATION_TAP }
@@ -93,4 +95,3 @@ const errorMessage = computed(() => {
   color: #b00020;
 }
 </style>
-
