@@ -1,5 +1,7 @@
 # GRIP Vue demo
 
+[Open the live demo on GitHub Pages](https://owebeeone.github.io/grip-vue-demo/)
+
 Vue examples for published GRIP Core 0.3.0, matching the GRIP React demo's behavior with Vue components and composables.
 
 ## Run locally
