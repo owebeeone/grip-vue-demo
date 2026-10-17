@@ -4,13 +4,21 @@ import { defineGrip } from './runtime';
 export const CURRENT_TIME = defineGrip<Date>('CurrentTime', new Date());
 export const PAGE_SIZE = defineGrip<number>('PageSize', 25);
 export const DESCRIPTION = defineGrip<string>('Description', '');
+export const DESCRIPTION_TAP = defineGrip<AtomTapHandle<string>>('Description.Tap');
+export const DESCRIPTION_SLUG = defineGrip<string>('Description.Slug', '');
+export const DESCRIPTION_STATS = defineGrip<string>('Description.Stats', '0 words · 0 characters');
 export const COUNT = defineGrip<number>('Count', 1);
 export const COUNT_TAP = defineGrip<AtomTapHandle<number>>('Count.Tap');
 export const CALC_DISPLAY = defineGrip<string>('CalcDisplay', '0');
-export const CURRENT_TAB = defineGrip<'clock' | 'calc' | 'weather'>('CurrentTab', 'clock');
-export const CURRENT_TAB_TAP = defineGrip<AtomTapHandle<'clock' | 'calc' | 'weather'>>('CurrentTab.Tap');
+export const CURRENT_TAB = defineGrip<'clock' | 'calc' | 'weather' | 'coins'>(
+  'CurrentTab',
+  'clock',
+);
+export const CURRENT_TAB_TAP =
+  defineGrip<AtomTapHandle<'clock' | 'calc' | 'weather' | 'coins'>>('CurrentTab.Tap');
 export const WEATHER_PROVIDER_NAME = defineGrip<'meteo' | 'mock'>('WeatherProvider', 'meteo');
-export const WEATHER_PROVIDER_NAME_TAP = defineGrip<AtomTapHandle<'meteo' | 'mock'>>('WeatherProvider.Tap');
+export const WEATHER_PROVIDER_NAME_TAP =
+  defineGrip<AtomTapHandle<'meteo' | 'mock'>>('WeatherProvider.Tap');
 
 // Weather-specific grips moved to `./grips.weather`
 
@@ -22,5 +30,3 @@ export const CALC_MUL_PRESSED = defineGrip<() => void>('Calc.MulPressed');
 export const CALC_DIV_PRESSED = defineGrip<() => void>('Calc.DivPressed');
 export const CALC_EQUALS_PRESSED = defineGrip<() => void>('Calc.EqualsPressed');
 export const CALC_CLEAR_PRESSED = defineGrip<() => void>('Calc.ClearPressed');
-
-

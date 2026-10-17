@@ -1,67 +1,48 @@
-<template>
-  <div class="weather-location-select">
-    <label class="label">{{ title }}</label>
-    <select v-model="selected" @change="onChange">
-      <option v-for="opt in options" :key="opt" :value="opt">
-        {{ opt }}
-      </option>
-    </select>
-  </div>
-</template>
-
 <script setup lang="ts">
-import type { GripContextLike } from '@owebeeone/grip-core'
-import { ref, watchEffect } from 'vue'
-import { useGrip } from '@owebeeone/grip-vue'
-import { WEATHER_LOCATION, WEATHER_LOCATION_TAP } from './grips.weather'
-
-const props = defineProps<{
-  title: string
-  ctx: GripContextLike
-}>()
-
-const options = [
-  'Sydney', 
-  'Melbourne', 
-  'San Jose', 
-  'Palo Alto', 
-  'Paris', 
+import { useGrip } from '@owebeeone/grip-vue';
+import { WEATHER_LOCATION, WEATHER_LOCATION_TAP } from './grips.weather';
+defineProps<{ title: string }>();
+const location = useGrip(WEATHER_LOCATION);
+const handle = useGrip(WEATHER_LOCATION_TAP);
+const OPTIONS = [
+  'Sydney',
+  'Melbourne',
+  'San Jose',
+  'Palo Alto',
+  'Paris',
   'Bella Vista, NSW',
   'Darwin',
   'Adelaide',
   'Perth',
   'Hobart',
   'Brisbane',
-  'Canberra',
+  'Gold Coast',
   'Newcastle',
-  'Wollongong'
-] as const
-
-const location = useGrip(WEATHER_LOCATION, props.ctx)
-const locationTap = useGrip(WEATHER_LOCATION_TAP, props.ctx)
-
-const selected = ref<string>('Sydney')
-
-watchEffect(() => {
-  if (location.value) {
-    selected.value = String(location.value)
-  }
-})
-
-function onChange() {
-  locationTap.value?.set(selected.value as any)
-}
+  'Canberra',
+  'Wollongong',
+  'Cairns',
+  'Toowoomba',
+  'Sunshine Coast',
+  'Mackay',
+  'Townsville',
+  'Rockhampton',
+  'Bundaberg',
+  'Gladstone',
+  'Hervey Bay',
+  'Maryborough',
+  'Bunbury',
+  'Port Macquarie',
+  'Port Douglas',
+  'Port Lincoln',
+  'Port Pirie',
+  'Port Augusta',
+] as const;
 </script>
-
-<style scoped>
-.weather-location-select {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.label {
-  min-width: 80px;
-}
-</style>
-
+<template>
+  <label
+    >{{ title }}
+    <select :value="location" @change="handle?.set(($event.target as HTMLSelectElement).value)">
+      <option v-for="city in OPTIONS" :key="city">{{ city }}</option>
+    </select></label
+  >
+</template>

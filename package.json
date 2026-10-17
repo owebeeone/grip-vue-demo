@@ -6,21 +6,31 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "check:source": "node scripts/check-source.mjs",
+    "check:readme": "node scripts/check-readme.mjs",
+    "check": "npm run check:source && npm run check:readme && npm test && npm run build",
+    "build:pages": "npm run build -- --base=/grip-vue-demo/"
   },
   "dependencies": {
-    "@owebeeone/grip-core": "^0.2.0",
-    "@owebeeone/grip-vue": "^0.2.0",
+    "@owebeeone/grip-core": "^0.3.0",
+    "@owebeeone/grip-vue": "0.3.0",
+    "prismjs": "^1.30.0",
     "vue": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "@types/prismjs": "^1.26.6",
     "@vitejs/plugin-vue": "^5.1.0",
+    "@vue/test-utils": "^2.5.1",
+    "jsdom": "^26.1.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "typescript": "~5.8.3",
     "util": "^0.12.5",
     "vite": "^6.0.0",
+    "vitest": "^3.2.7",
     "vue-tsc": "^2.1.6"
   }
 }

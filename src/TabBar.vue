@@ -1,28 +1,25 @@
-<template>
-  <div class="tab-bar">
-    <button @click="setTab('clock')" :disabled="tab === 'clock'">Clock &amp; Counter</button>
-    <button @click="setTab('calc')" :disabled="tab === 'calc'">Calculator</button>
-    <button @click="setTab('weather')" :disabled="tab === 'weather'">Weather</button>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { useGrip } from '@owebeeone/grip-vue'
-import { CURRENT_TAB, CURRENT_TAB_TAP } from './grips'
-
-const tab = useGrip(CURRENT_TAB) as any
-const tabTap = useGrip(CURRENT_TAB_TAP)
-
-function setTab(next: 'clock' | 'calc' | 'weather') {
-  tabTap.value?.set(next)
-}
+import { useGrip } from '@owebeeone/grip-vue';
+import { CURRENT_TAB, CURRENT_TAB_TAP } from './grips';
+const tab = useGrip(CURRENT_TAB);
+const handle = useGrip(CURRENT_TAB_TAP);
+const tabs = {
+  clock: 'Clock & Counter',
+  calc: 'Calculator',
+  weather: 'Weather',
+  coins: 'Coins',
+} as const;
 </script>
-
-<style scoped>
-.tab-bar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-</style>
-
+<template>
+  <nav class="tab-bar" aria-label="Examples">
+    <button
+      v-for="(label, key) in tabs"
+      :key="key"
+      :aria-pressed="tab === key"
+      :disabled="tab === key"
+      @click="handle?.set(key)"
+    >
+      {{ label }}
+    </button>
+  </nav>
+</template>

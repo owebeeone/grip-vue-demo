@@ -1,5 +1,14 @@
 import { type Tap, Grip, MultiAtomValueTap } from '@owebeeone/grip-core';
-import { CALC_DISPLAY, CALC_ADD_PRESSED, CALC_CLEAR_PRESSED, CALC_DIGIT_PRESSED, CALC_DIV_PRESSED, CALC_EQUALS_PRESSED, CALC_MUL_PRESSED, CALC_SUB_PRESSED } from './grips';
+import {
+  CALC_DISPLAY,
+  CALC_ADD_PRESSED,
+  CALC_CLEAR_PRESSED,
+  CALC_DIGIT_PRESSED,
+  CALC_DIV_PRESSED,
+  CALC_EQUALS_PRESSED,
+  CALC_MUL_PRESSED,
+  CALC_SUB_PRESSED,
+} from './grips';
 
 // Calculator: Multi-atom tap that publishes CALC_DISPLAY and function grips
 export class CalculatorTap extends MultiAtomValueTap implements Tap {
@@ -16,10 +25,8 @@ export class CalculatorTap extends MultiAtomValueTap implements Tap {
   constructor() {
     super(
       CalculatorTap.outputs,
-      new Map<Grip<any>, any>([
-        [CALC_DISPLAY as Grip<any>, (CALC_DISPLAY.defaultValue ?? '0')],
-      ]),
-      { handleGrip: undefined }
+      new Map<Grip<any>, any>([[CALC_DISPLAY as Grip<any>, CALC_DISPLAY.defaultValue ?? '0']]),
+      { handleGrip: undefined },
     );
 
     // Initialize function grips once
@@ -32,16 +39,20 @@ export class CalculatorTap extends MultiAtomValueTap implements Tap {
       setDisplay(next);
     });
     this.set(CALC_ADD_PRESSED, () => {
-      const v = getDisplay(); setDisplay(v + '+');
+      const v = getDisplay();
+      setDisplay(v + '+');
     });
     this.set(CALC_SUB_PRESSED, () => {
-      const v = getDisplay(); setDisplay(v + '-');
+      const v = getDisplay();
+      setDisplay(v + '-');
     });
     this.set(CALC_MUL_PRESSED, () => {
-      const v = getDisplay(); setDisplay(v + '*');
+      const v = getDisplay();
+      setDisplay(v + '*');
     });
     this.set(CALC_DIV_PRESSED, () => {
-      const v = getDisplay(); setDisplay(v + '/');
+      const v = getDisplay();
+      setDisplay(v + '/');
     });
     this.set(CALC_EQUALS_PRESSED, () => {
       const expr = getDisplay();
