@@ -7,6 +7,8 @@ import ClockCounterPanel from './ClockCounterPanel.vue';
 import CalculatorPanel from './CalculatorPanel.vue';
 import WeatherPanel from './WeatherPanel.vue';
 import CoinPanel from './CoinPanel.vue';
+import Overview from './Overview.vue';
+import ExampleGuide from './ExampleGuide.vue';
 import DemoWorkspace from './DemoWorkspace.vue';
 const tab = useGrip(CURRENT_TAB);
 </script>
@@ -15,6 +17,8 @@ const tab = useGrip(CURRENT_TAB);
     <main class="demo-content">
       <AppHeader />
       <TabBar />
+      <Overview v-if="tab === 'overview'" />
+      <ExampleGuide v-if="tab && tab !== 'overview'" :tab="tab" />
       <ClockCounterPanel v-if="tab === 'clock'" />
       <CalculatorPanel v-else-if="tab === 'calc'" />
       <WeatherPanel v-else-if="tab === 'weather'" />

@@ -15,6 +15,7 @@ beforeEach(() => {
 it('keeps the running demo mounted while the graph updates, resizes, refreshes, and switches to source inspection', async () => {
   vi.useFakeTimers();
   const grok = new Grok(registry);
+  grok.registerTap(createAtomValueTap(CURRENT_TAB, { initial: 'clock', handleGrip: CURRENT_TAB_TAP }));
   grok.registerTap(createAtomValueTap(COUNT, { initial: 1, handleGrip: COUNT_TAP }));
   const view = render(
     defineComponent({ setup: () => () => h(DemoWorkspace, null, () => h(ClockCounterPanel)) }),

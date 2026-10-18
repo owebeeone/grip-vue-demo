@@ -16,3 +16,6 @@ yarn-error.log*
 pnpm-debug.log*
 .DS_Store
 coverage/
+
+# Temporary pinned adapter checkout used by Pages CI
+.pages-adapter/

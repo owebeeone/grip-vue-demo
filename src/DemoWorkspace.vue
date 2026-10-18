@@ -111,7 +111,7 @@ onUnmounted(stopResize);
       <header class="inspector-toolbar">
         <strong>Example source</strong><button ref="back" @click="closeSource">Back to demo</button>
       </header>
-      <ExampleSource :tab="tab ?? 'clock'" />
+      <ExampleSource :tab="tab ?? 'overview'" />
     </section>
   </div>
 </template>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import overview from './Overview.vue?raw';
+import guide from './demoGuide.ts?raw';
+import type { DemoTab } from './demoGuide';
 import { computed } from 'vue';
 import SourceColumn from './SourceColumn.vue';
 import source0 from './ClockCounterPanel.vue?raw';
@@ -20,8 +23,9 @@ import source15 from './coinScope.ts?raw';
 import source16 from './cointaps.ts?raw';
 import source17 from './grips.coin.ts?raw';
 import clockCard from './ClockCard.vue?raw';
-const props = defineProps<{ tab: 'clock' | 'calc' | 'weather' | 'coins' }>();
+const props = defineProps<{ tab: DemoTab }>();
 const examples = {
+  overview: { title: 'Overview', ui: [{ name: 'Overview.vue', text: overview }], providers: [{ name: 'demoGuide.ts', text: guide }, { name: 'grips.ts', text: source4 }] },
   clock: {
     title: 'Clock & Counter',
     ui: [

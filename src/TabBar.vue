@@ -4,6 +4,7 @@ import { CURRENT_TAB, CURRENT_TAB_TAP } from './grips';
 const tab = useGrip(CURRENT_TAB);
 const handle = useGrip(CURRENT_TAB_TAP);
 const tabs = {
+  overview: 'Overview',
   clock: 'Clock & Counter',
   calc: 'Calculator',
   weather: 'Weather',

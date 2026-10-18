@@ -1,3 +1,4 @@
+import type { DemoTab } from './demoGuide';
 import type { AtomTapHandle } from '@owebeeone/grip-core';
 import { defineGrip } from './runtime';
 
@@ -10,12 +11,12 @@ export const DESCRIPTION_STATS = defineGrip<string>('Description.Stats', '0 word
 export const COUNT = defineGrip<number>('Count', 1);
 export const COUNT_TAP = defineGrip<AtomTapHandle<number>>('Count.Tap');
 export const CALC_DISPLAY = defineGrip<string>('CalcDisplay', '0');
-export const CURRENT_TAB = defineGrip<'clock' | 'calc' | 'weather' | 'coins'>(
+export const CURRENT_TAB = defineGrip<DemoTab>(
   'CurrentTab',
-  'clock',
+  'overview',
 );
 export const CURRENT_TAB_TAP =
-  defineGrip<AtomTapHandle<'clock' | 'calc' | 'weather' | 'coins'>>('CurrentTab.Tap');
+  defineGrip<AtomTapHandle<DemoTab>>('CurrentTab.Tap');
 export const WEATHER_PROVIDER_NAME = defineGrip<'meteo' | 'mock'>('WeatherProvider', 'meteo');
 export const WEATHER_PROVIDER_NAME_TAP =
   defineGrip<AtomTapHandle<'meteo' | 'mock'>>('WeatherProvider.Tap');

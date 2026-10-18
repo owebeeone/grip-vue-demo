@@ -24,6 +24,22 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      # Pin the reviewed adapter source until its next npm release.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: owebeeone/grip-vue
+          ref: 9a14eae84e90e830cc5a5bed47ee1f84f5e5003e
+          path: .pages-adapter
+          persist-credentials: false
+      - name: Build and verify the pinned adapter
+        working-directory: .pages-adapter
+        run: |
+          npm ci --ignore-scripts
+          npm test
+          npm run build
+          npm pack --pack-destination "$RUNNER_TEMP"
+      - name: Install the pinned adapter for the demo
+        run: npm install --no-save --package-lock=false --ignore-scripts "$RUNNER_TEMP/owebeeone-grip-vue-0.3.0.tgz"
       - run: npm run check:source
       - run: npm run check:readme
       - run: npm test

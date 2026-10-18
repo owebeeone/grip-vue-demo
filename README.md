@@ -92,6 +92,11 @@ This checks explicit control-flow boundaries, README excerpt alignment, integrat
 
 See `docs/parity.md` for scope, verification results and separate findings. No React or Core source changes are required.
 
+## Guided examples
+
+The default Overview tab links to the adapter project, its documentation, and this
+demo source. Each example includes what to try and what to observe. Use the graph, source viewer, and JSON dump to inspect the running examples.
+
 ## GitHub Pages
 
 [Open the live demo](https://owebeeone.github.io/grip-vue-demo/) · [Counter](https://owebeeone.github.io/grip-vue-demo/readme-counter.html) · [Offline weather introduction](https://owebeeone.github.io/grip-vue-demo/readme-weather.html)
@@ -113,3 +118,11 @@ Open `/grip-vue-demo/` on the preview server. Ordinary `npm run dev` and
 static application; live weather and exchange data are requested directly by
 the browser and depend on those services' availability. The offline README
 weather example does not need external services.
+
+### Pages adapter build
+
+The Pages workflow builds GRIP Vue from the exact reviewed commit
+`9a14eae84e90e830cc5a5bed47ee1f84f5e5003e` so the live demo includes the new graph highlights.
+The normal package dependency remains the current npm release. Once the adapter
+is released, update that dependency and remove the temporary source-build steps
+from `.github/workflows/pages.yml`.

@@ -97,7 +97,7 @@ export const CounterTap: Tap = createAtomValueTap(COUNT, {
   handleGrip: COUNT_TAP,
 }) as unknown as Tap;
 export const TabTap: Tap = createAtomValueTap(CURRENT_TAB, {
-  initial: CURRENT_TAB.defaultValue ?? 'clock',
+  initial: CURRENT_TAB.defaultValue ?? 'overview',
   handleGrip: CURRENT_TAB_TAP,
 });
 export const WeatherProviderTap: Tap = createAtomValueTap(WEATHER_PROVIDER_NAME, {

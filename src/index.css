@@ -46,3 +46,15 @@ dt { color: #68778c; } dd { margin: 0; overflow-wrap: anywhere; }
 .source-column label { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; font-size: .85rem; }
 .source-column pre { flex: 1; overflow: auto; border-radius: 8px; padding: 16px; background: #24262e; color: #e5e8f1; font: 12px/1.65 ui-monospace, monospace; tab-size: 2; }
 @media (max-width: 700px) { .example-columns { grid-template-columns: 1fr; } .demo-content { padding: 16px; } .source-columns { grid-template-columns: 1fr; overflow: auto; } .source-column { min-height: 300px; } }
+
+.demo-overview { max-width: 960px; margin: 12px auto 28px; text-align: left; }
+.demo-overview h1 { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; margin: 12px 0; }
+.demo-overview > p { max-width: 75ch; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 20px 0 28px; }
+.overview-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.overview-example, .example-guide, .inspection-guide { border: 1px solid var(--panel-border, #d7dfeb); border-radius: 10px; padding: 18px; background: var(--panel-background, #fff); }
+.overview-example h2, .example-guide h2, .inspection-guide h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.overview-example p, .example-guide p, .inspection-guide p { margin: 8px 0 14px; }
+.example-guide { margin: 4px 0 20px; text-align: left; }
+.inspection-guide { margin-top: 20px; }
+.project-links a { text-decoration: underline; text-underline-offset: 3px; }
